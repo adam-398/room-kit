@@ -61,4 +61,8 @@ dependencies {
     implementation(libs.androidx.room.runtime)  // the database engine
     implementation(libs.androidx.room.ktx)      // coroutines and Flow support
     ksp(libs.androidx.room.compiler)            // the code generator
+
+    //dependencies for viewmodels
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
 }
