@@ -6,7 +6,7 @@ import dev.auroralaboratories.room_kit.core.database.BaseDao
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Data access object (DAO) for the [Note] entity.
+ * Data access object (DAO) for the [Note] entity. Extends the [BaseDao] interface.
  * @see BaseDao
  */
 @Dao
