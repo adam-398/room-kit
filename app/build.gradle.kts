@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -55,4 +56,9 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    //dependencies for room
+    implementation(libs.androidx.room.runtime)  // the database engine
+    implementation(libs.androidx.room.ktx)      // coroutines and Flow support
+    ksp(libs.androidx.room.compiler)            // the code generator
 }
