@@ -8,15 +8,13 @@ import androidx.room.TypeConverters
 import dev.auroralaboratories.room_kit.core.database.Converters
 
 /**
- * The Room database for the app.
+ * The Room database for the app. Lists the entities, registers the converters,
+ * exposes the DAOs, and holds the single shared instance.
  * @see Database
  * @see TypeConverters
  */
 @Database(entities = [Note::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
-/**
- * Abstract class representing the Room database for the app.
- */
 abstract class NoteDatabase : RoomDatabase() {
 
     /**
@@ -24,16 +22,13 @@ abstract class NoteDatabase : RoomDatabase() {
      */
     abstract fun noteDao(): NoteDao
 
-    /**
-     * Companion object for the [NoteDatabase] class.
-     */
     companion object {
         @Volatile
         private var INSTANCE: NoteDatabase? = null
 
         /**
-         * Retrieves the singleton instance of the [NoteDatabase].
-         * @param context The application context.
+         * Retrieves the singleton instance of the [NoteDatabase], creating it if needed.
+         * @param context Any context. The application context is used internally.
          * @return The singleton instance of the [NoteDatabase].
          */
         fun getInstance(context: Context): NoteDatabase =

@@ -7,6 +7,8 @@ import androidx.room.Update
 
 /**
  * Base interface for data access objects (DAOs) in Room.
+ * Holds the operations every table needs, so each concrete DAO only adds its own queries.
+ * @param T The entity type this DAO works with.
  */
 interface BaseDao<T> {
 

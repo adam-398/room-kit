@@ -6,15 +6,15 @@ import dev.auroralaboratories.room_kit.core.database.BaseDao
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Data access object (DAO) for the [Note] entity. Extends the [BaseDao] interface.
+ * Data access object (DAO) for the [Note] entity. Extends [BaseDao] and adds the notes queries.
  * @see BaseDao
  */
 @Dao
 interface NoteDao : BaseDao<Note> {
 
     /**
-     * Observes all notes in the database.
-     * @return A [Flow] of a list of [Note]s.
+     * Observes all notes in the database, newest first.
+     * @return A [Flow] that emits a fresh list whenever the notes table changes.
      */
     @Query("SELECT * FROM notes ORDER BY createdAt DESC")
     fun observeAll(): Flow<List<Note>>

@@ -7,7 +7,7 @@ plugins {
 android {
     namespace = "dev.auroralaboratories.room_kit"
     compileSdk {
-        version = release(36) {
+        version = release(37) {
             minorApiLevel = 1
         }
     }
